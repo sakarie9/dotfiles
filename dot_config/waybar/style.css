@@ -15,7 +15,7 @@ window#waybar {
 #workspaces button {
   background-color: transparent;
   color: @text;
-  padding: 0px 8px;
+  padding: 0px 12px 0px 8px;
   margin-top: 3px;
   margin-bottom: 3px;
   margin-left: 2px;
@@ -31,7 +31,6 @@ window#waybar {
   background: @blue;
   border: @blue;
   color: @crust;
-  padding: 1px 8px;
   transition-property: background-color;
   transition-duration: 1s;
 }
@@ -87,6 +86,7 @@ window#waybar {
   background-color: @blue;
   color: @crust;
   margin-left: 5px;
+  padding: 1px 6px 1px 8px;
 }
 
 #custom-launcher:hover {
