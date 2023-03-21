@@ -9,7 +9,7 @@
 window#waybar {
   background-color: rgba(30, 30, 46, 0.8);
   color: @text;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #workspaces button {
@@ -20,7 +20,7 @@ window#waybar {
   margin-bottom: 5px;
   margin-left: 2px;
   margin-right: 2px;
-  border-radius: 10px;
+  border-radius: 8px;
   transition-property: background-color;
   transition-duration: 0.3s;
 }
@@ -77,7 +77,7 @@ window#waybar {
   margin-bottom: 5px;
   margin-left: 2px;
   margin-right: 2px;
-  border-radius: 10px;
+  border-radius: 8px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
