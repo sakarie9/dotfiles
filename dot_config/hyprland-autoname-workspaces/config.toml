@@ -1,0 +1,26 @@
+
+[icons]
+# Add your icons mapping
+# use double quote the key and the value
+# take class name from 'hyprctl clients'
+"DEFAULT" = ""
+"alacritty" = ""
+"foot" = ""
+"firefoxdeveloperedition" = ""
+"org.telegram.desktop" = ""
+"nemo" = ""
+"steam" = ""
+"yesplaymusic" = ""
+"NotepadNext" = ""
+"Code" = ""
+"mpv" = ""
+
+# Add your applications that need to be exclude
+# The key is the class, the value is the title.
+# You can put an empty title to exclude based on
+# class name only, "" make the job.
+[exclude]
+fcitx = "*"
+Steam = "Steam - 新闻"
+Steam = "好友列表"
+TestApp = ""
