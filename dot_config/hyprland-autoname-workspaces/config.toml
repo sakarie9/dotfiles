@@ -1,15 +1,15 @@
-
+# https://github.com/cyrinux/hyprland-autoname-workspaces
 [icons]
 # Add your icons mapping
 # use double quote the key and the value
 # take class name from 'hyprctl clients'
 "DEFAULT" = ""
-"alacritty" = ""
+"Alacritty" = ""
 "foot" = ""
 "firefoxdeveloperedition" = ""
 "org.telegram.desktop" = ""
 "nemo" = ""
-"steam" = ""
+"[Ss]team" = ""
 "yesplaymusic" = ""
 "NotepadNext" = ""
 "Code" = ""
@@ -20,7 +20,9 @@
 # You can put an empty title to exclude based on
 # class name only, "" make the job.
 [exclude]
-fcitx = "*"
-Steam = "Steam - 新闻"
-Steam = "好友列表"
-TestApp = ""
+fcitx = ".*"
+"[Ss]team" = "Steam - 新闻.*"
+"[Ss]team" = "好友列表.*"
+"[Ss]team" = "^$"
+#Alacritty = ""
+
