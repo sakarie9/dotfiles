@@ -11,7 +11,7 @@ Themed by [Catppuccin Theme](https://github.com/catppuccin/catppuccin)
 - waybar
 - alacritty
 - fontconfig
-- mako
+- swaync
 - wlogout
 - rofi
 - sway (reserved, switching to hyprland)
