@@ -125,6 +125,7 @@ window#waybar {
 #pulseaudio {
   background-color: @mauve;
   color: @crust;
+  margin-right: 5px;
 }
 
 #pulseaudio:hover {
