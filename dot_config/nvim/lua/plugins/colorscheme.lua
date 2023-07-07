@@ -1,18 +1,30 @@
 return {
-  { "catppuccin/nvim", name = "catppuccin" },
-
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin-macchiato",
     },
   },
-  require("catppuccin").setup {
-        frappe = {
-            surface1 = "#100e23",
-            surface2 = "#565575",
-        },
-        macchiato = {},
-        mocha = {},
-  }
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      term_colors = true,
+      transparent_background = true,
+      styles = {
+        comments = {},
+        conditionals = {},
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+      },
+      color_overrides = {},
+    },
+  },
 }
