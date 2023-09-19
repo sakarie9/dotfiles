@@ -6,18 +6,19 @@
   // Margins value using the css format without units.
   //"margin": "",
   // Margins value without units.
-  "margin-top": 4,
+  //"margin-top": 4,
   //"margin-bottom": 10,
-  "margin-left": 8,
-  "margin-right": 8,
+  //"margin-left": 8,
+  //"margin-right": 8,
   // Size of gaps in between of the different modules. Default: 4.
   "spacing": 4,
   // Choose the order of the modules
   "modules-left": [
     "custom/launcher",
     "hyprland/workspaces",
-    // "wlr/workspaces",
-    "custom/music"
+    //"custom/music"
+    "mpris"
+    //"cava"
   ],
   "modules-center": [
     "clock",
@@ -27,14 +28,11 @@
     "tray",
     "cpu",
     "memory",
-    "pulseaudio"
+    "temperature",
+    "pulseaudio",
+    "custom/power"
     //"custom/notification"
   ],
-  "wlr/workspaces": {
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
-  },
   "hyprland/workspaces": {
     "format": "{name}"
   },
@@ -54,10 +52,18 @@
   "memory": {
     "interval": 5,
     "format": "   {used:0.1f}G/{total:0.1f}G",
-    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' btop"
+    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' btop",
+    "tooltip-format": "swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G"
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "  {temperatureC}°C",
+    "format": "  {temperatureC}°C"
   },
   "custom/music": {
-    "format": "   {}",
+    "format": "  {}",
     "escape": true,
     "interval": 5,
     "tooltip": false,
@@ -65,6 +71,16 @@
     "on-click": "playerctl play-pause",
     "on-scroll-down": "playerctl next",
     "on-scroll-up": "playerctl previous",
+    "max-length": 50
+  },
+  "mpris": {
+    "format": "{status_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "interval": 1,
+    "status-icons": {
+      "playing": " ",
+      "paused": " "
+    },
     "max-length": 50
   },
   "clock": {
@@ -96,14 +112,14 @@
   "custom/weather": {
     "interval": 1200,
     "tooltip-format": "{tooltip}",
-    "exec": "curl 'https://wttr.in/Zhengzhou?format=1&m'"
+    "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'"
   },
   "hyprland/window": {
     "format": " {:.40} ",
     "separate-outputs": false
   },
   "custom/launcher": {
-    "format": " ",
+    "format": "",
     "on-click": "rofi -show drun",
     "tooltip": false
   },
@@ -125,5 +141,41 @@
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "escape": true
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "wlogout -p layer-shell",
+    "tooltip": false
+  },
+  "cava": {
+    //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
   }
 }
