@@ -1,10 +1,11 @@
 configuration{
     modi: "run,drun";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "foot";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
+    cache-dir: "/home/sakari/.local/share/rofi/rofi.cache";
     hide-scrollbar: true;
     display-drun: "   Apps ";
     display-run: "   Run ";

@@ -1,7 +1,7 @@
 @import "themes/frappe.css";
 
 * {
-  font-family: "Sarasa Gothic SC";
+  font-family: "Sarasa Gothic SC", "JetBrainsMono Nerd Font";
   font-size: 11pt;
   min-height: 0;
 }
@@ -62,6 +62,7 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#window,
 #cava,
 #mpris,
 #custom-music,
@@ -83,6 +84,19 @@ window#waybar {
   color: @text;
   padding: 0 8px;
   border-radius: 4px;
+}
+
+/* do something when no window to whole waybar */
+window#waybar.empty {
+  background: alpha(@mantle, 0.2);
+}
+
+/* hide window title when no window */
+window#waybar.empty #window {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
 }
 
 #custom-launcher {

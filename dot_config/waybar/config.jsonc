@@ -17,8 +17,9 @@
     "custom/launcher",
     "hyprland/workspaces",
     //"custom/music"
-    "mpris"
+    "mpris",
     //"cava"
+    "hyprland/window"
   ],
   "modules-center": [
     "clock",
@@ -34,7 +35,17 @@
     //"custom/notification"
   ],
   "hyprland/workspaces": {
-    "format": "{name}"
+    "format": "{name}",
+    "show-special": true
+  },
+  "hyprland/window": {
+    //"format": " {:.40} ",
+    //"format": " {title} ",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "  $1"
+      //"(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true
   },
   "tray": {
     "icon-size": 21,
@@ -114,10 +125,6 @@
     "tooltip-format": "{tooltip}",
     "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'"
   },
-  "hyprland/window": {
-    "format": " {:.40} ",
-    "separate-outputs": false
-  },
   "custom/launcher": {
     "format": "",
     "on-click": "rofi -show drun",
@@ -148,7 +155,7 @@
     "tooltip": false
   },
   "cava": {
-    //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    //"cava_config": "~/.config/cava/config",
     "framerate": 30,
     "autosens": 1,
     "sensitivity": 100,
