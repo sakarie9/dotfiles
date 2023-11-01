@@ -62,7 +62,7 @@
   },
   "memory": {
     "interval": 5,
-    "format": "   {used:0.1f}G/{total:0.1f}G",
+    "format": "   {used:0.1f}G/{total:0.1f}G ({percentage}%)",
     "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' btop",
     "tooltip-format": "swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G"
   },
