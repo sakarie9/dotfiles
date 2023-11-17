@@ -21,22 +21,27 @@
     //"cava"
     "hyprland/window"
   ],
-  "modules-center": [
-    "clock",
-    "custom/weather"
-  ],
+  "modules-center": ["clock", "custom/weather"],
   "modules-right": [
     "tray",
+    "gamemode",
     "cpu",
     "memory",
     "temperature",
-    "pulseaudio",
+    //"pulseaudio",
+    "wireplumber",
     "custom/power"
     //"custom/notification"
   ],
   "hyprland/workspaces": {
     "format": "{name}",
-    "show-special": true
+    // "format": "{icon}: <sub>{windows}</sub> ",
+    "show-special": true,
+    "window-rewrite": {
+      "firefox": "",
+      "foot": "",
+      "code": "󰨞"
+    }
   },
   "hyprland/window": {
     //"format": " {:.40} ",
@@ -50,6 +55,18 @@
   "tray": {
     "icon-size": 21,
     "spacing": 10
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "",
+    "hide-not-running": true,
+    "use-icon": true,
+    "icon-name": "input-gaming-symbolic",
+    "icon-spacing": 0,
+    "icon-size": 20,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
   },
   "cpu": {
     "interval": 5,
@@ -107,16 +124,19 @@
       }
     }
   },
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "on-click": "pavucontrol",
+    "format-icons": ["", "", ""],
+    "scroll-step": 2
+  },
   "pulseaudio": {
     "scroll-step": 2, // %, can be a float
     "format": "{icon}  {volume}%",
     "format-muted": "",
     "format-icons": {
-      "default": [
-        "",
-        "",
-        " "
-      ]
+      "default": ["", "", " "]
     },
     "on-click": "pavucontrol"
   },
@@ -171,16 +191,7 @@
     "waves": false,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "actions": {
       "on-click-right": "mode"
     }

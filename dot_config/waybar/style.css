@@ -29,13 +29,13 @@ window#waybar {
   border-radius: 0;
 }
 #workspaces button:last-child {
-    border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
 }
 #workspaces button:first-child {
-    border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
 }
 #workspaces button:only-child {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 #workspaces button:hover {
@@ -67,12 +67,14 @@ window#waybar {
 #mpris,
 #custom-music,
 #tray,
+#gamemode,
 #cpu,
 #memory,
 #temperature,
 #backlight,
 #clock,
 #battery,
+#wireplumber,
 #pulseaudio,
 #custom-lock,
 #custom-weather,
@@ -100,7 +102,7 @@ window#waybar.empty #window {
 }
 
 #custom-launcher {
-  margin-left: 6px;
+  margin-left: 8px;
   padding-right: 14px;
   background-color: @sapphire;
   color: @crust;
@@ -153,7 +155,7 @@ window#waybar.empty #window {
 
 #custom-notification {
   padding-right: 12px;
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 #custom-power {
@@ -163,4 +165,3 @@ window#waybar.empty #window {
   padding-left: 9px;
   padding-right: 9px;
 }
-
