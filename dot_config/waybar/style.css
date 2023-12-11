@@ -80,6 +80,8 @@ window#waybar {
 #custom-weather,
 #custom-launcher,
 #custom-power,
+#custom-pacman,
+#custom-easyeffects,
 #custom-notification {
   margin: 4px 6px 4px 0;
   background: alpha(@mantle, 0.7);
@@ -156,6 +158,10 @@ window#waybar.empty #window {
 #custom-notification {
   padding-right: 12px;
   margin-right: 5px;
+}
+
+#custom-easyeffects {
+  padding-right: 9px;
 }
 
 #custom-power {

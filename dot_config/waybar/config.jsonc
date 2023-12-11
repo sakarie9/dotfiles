@@ -24,12 +24,14 @@
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
     "tray",
-    "gamemode",
+    // "gamemode",
+    "custom/pacman",
     "cpu",
     "memory",
     "temperature",
     //"pulseaudio",
     "wireplumber",
+    "custom/easyeffects",
     "custom/power"
     //"custom/notification"
   ],
@@ -113,10 +115,11 @@
   },
   "clock": {
     "interval": 1,
-    "timezone": "Asia/Shanghai",
+    // "timezone": "Asia/Shanghai",
+    // "locale": "zh_CN.UTF-8",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "format-alt": "   {:%Y/%m/%d}",
-    "format": "   {:%m-%d %A %H:%M:%S}",
+    "format": "   {:L%m-%d %A %H:%M:%S}",
     "calendar": {
       "format": {
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
@@ -130,6 +133,12 @@
     "on-click": "pavucontrol",
     "format-icons": ["", "", ""],
     "scroll-step": 2
+  },
+  "custom/easyeffects": {
+    "format": "{}",
+    "restart-interval": 1,
+    "exec": "~/Scripts/easyeffects-switch.sh",
+    "on-click": "~/Scripts/easyeffects-switch.sh switch"
   },
   "pulseaudio": {
     "scroll-step": 2, // %, can be a float
@@ -168,6 +177,15 @@
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "escape": true
+  },
+  "custom/pacman": {
+    "format": "  {}",
+    "interval": 3600, // every hour
+    // "exec": "/bin/bash -c 'checkupdates 2>/dev/null | wc -l'", // # of updates
+    // "exec-if": "exit 0", // always run; consider advanced run conditions
+    "exec": "~/Scripts/pacman-checkupdates.sh",
+    "on-click": "foot paru; pkill -SIGRTMIN+8 waybar", // update system
+    "signal": 8
   },
   "custom/power": {
     "format": "󰐥",
