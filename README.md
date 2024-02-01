@@ -10,11 +10,11 @@ Themed by [Catppuccin Theme](https://github.com/catppuccin/catppuccin)
 - hyprland
 - waybar
 - alacritty
+- foot
 - fontconfig
-- swaync
+- mako
 - wlogout
 - rofi
-- sway (reserved, switching to hyprland)
 - swaylock
 - mpv
 - neovim
