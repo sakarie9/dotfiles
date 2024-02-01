@@ -1,56 +1,32 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  //"width": 1280, // Waybar width
   "height": 34,
-  // Margins value using the css format without units.
-  //"margin": "",
-  // Margins value without units.
-  //"margin-top": 4,
-  //"margin-bottom": 10,
-  //"margin-left": 8,
-  //"margin-right": 8,
-  // Size of gaps in between of the different modules. Default: 4.
   "spacing": 4,
-  // Choose the order of the modules
   "modules-left": [
     "custom/launcher",
     "hyprland/workspaces",
-    //"custom/music"
     "mpris",
-    //"cava"
     "hyprland/window"
   ],
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
     "tray",
-    // "gamemode",
     "custom/pacman",
     "cpu",
     "memory",
     "temperature",
-    //"pulseaudio",
     "wireplumber",
     "custom/easyeffects",
     "custom/power"
-    //"custom/notification"
   ],
   "hyprland/workspaces": {
     "format": "{name}",
-    // "format": "{icon}: <sub>{windows}</sub> ",
-    "show-special": true,
-    "window-rewrite": {
-      "firefox": "",
-      "foot": "",
-      "code": "󰨞"
-    }
+    "show-special": true
   },
   "hyprland/window": {
-    //"format": " {:.40} ",
-    //"format": " {title} ",
     "rewrite": {
       "(.*) — Mozilla Firefox": "  $1"
-      //"(.*) - fish": "> [$1]"
     },
     "separate-outputs": true
   },
@@ -58,25 +34,9 @@
     "icon-size": 21,
     "spacing": 10
   },
-  "gamemode": {
-    "format": "{glyph}",
-    "format-alt": "{glyph} {count}",
-    "glyph": "",
-    "hide-not-running": true,
-    "use-icon": true,
-    "icon-name": "input-gaming-symbolic",
-    "icon-spacing": 0,
-    "icon-size": 20,
-    "tooltip": true,
-    "tooltip-format": "Games running: {count}"
-  },
   "cpu": {
     "interval": 5,
     "format": "   {usage:2}% ({load:0.2f})",
-    "states": {
-      "warning": 70,
-      "critical": 90
-    },
     "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' htop"
   },
   "memory": {
@@ -87,21 +47,10 @@
   },
   "temperature": {
     "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
     "format-critical": "  {temperatureC}°C",
     "format": "  {temperatureC}°C"
-  },
-  "custom/music": {
-    "format": "  {}",
-    "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{ title }} - {{ artist }}'",
-    "on-click": "playerctl play-pause",
-    "on-scroll-down": "playerctl next",
-    "on-scroll-up": "playerctl previous",
-    "max-length": 50
   },
   "mpris": {
     "format": "{status_icon} {title} - {artist}",
@@ -131,6 +80,7 @@
     "format": "{icon}  {volume}%",
     "format-muted": "",
     "on-click": "pavucontrol",
+    "on-click-right": "~/Scripts/roc-output-switch.sh",
     "format-icons": ["", "", ""],
     "scroll-step": 2
   },
@@ -139,15 +89,6 @@
     "restart-interval": 1,
     "exec": "~/Scripts/easyeffects-switch.sh",
     "on-click": "~/Scripts/easyeffects-switch.sh switch"
-  },
-  "pulseaudio": {
-    "scroll-step": 2, // %, can be a float
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", " "]
-    },
-    "on-click": "pavucontrol"
   },
   "custom/weather": {
     "interval": 1200,
@@ -159,30 +100,9 @@
     "on-click": "rofi -show drun",
     "tooltip": false
   },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "",
-      "none": "",
-      "dnd-notification": "",
-      "dnd-none": "",
-      "inhibited-notification": "",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "escape": true
-  },
   "custom/pacman": {
     "format": "  {}",
     "interval": 3600, // every hour
-    // "exec": "/bin/bash -c 'checkupdates 2>/dev/null | wc -l'", // # of updates
-    // "exec-if": "exit 0", // always run; consider advanced run conditions
     "exec": "~/Scripts/pacman-checkupdates.sh",
     "on-click": "foot paru; pkill -SIGRTMIN+8 waybar", // update system
     "signal": 8
@@ -191,27 +111,5 @@
     "format": "󰐥",
     "on-click": "wlogout -p layer-shell",
     "tooltip": false
-  },
-  "cava": {
-    //"cava_config": "~/.config/cava/config",
-    "framerate": 30,
-    "autosens": 1,
-    "sensitivity": 100,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "actions": {
-      "on-click-right": "mode"
-    }
   }
 }
