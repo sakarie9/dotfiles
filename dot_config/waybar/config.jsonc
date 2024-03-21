@@ -104,7 +104,7 @@
     "format": "  {}",
     "interval": 3600, // every hour
     "exec": "~/Scripts/pacman-checkupdates.sh",
-    "on-click": "foot paru; pkill -SIGRTMIN+8 waybar", // update system
+    "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system
     "signal": 8
   },
   "custom/power": {

@@ -1,20 +1,20 @@
+default-timeout=3000
+# ignore-timeout=1
 
-default-timeout=2000
-ignore-timeout=1
-
-layer=top
+#layer=top
+layer=overlay
 anchor=top-right
 
-border-radius=5
-width=350
-margin=5,5,5
-padding=10
+border-radius=4
+width=360
+margin=6,6,6
+padding=12
 group-by=summary
 border-size=2
 
 # Colors
 
-background-color=#303446
+background-color=#303446F0
 text-color=#c6d0f5
 border-color=#8caaee
 progress-color=over #414559
