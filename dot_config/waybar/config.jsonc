@@ -81,7 +81,7 @@
     "format-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "~/Scripts/roc-output-switch.sh",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", " "],
     "scroll-step": 2
   },
   "custom/easyeffects": {
@@ -102,7 +102,7 @@
   },
   "custom/pacman": {
     "format": "  {}",
-    "interval": 3600, // every hour
+    "interval": 7200, // every two hours
     "exec": "~/Scripts/pacman-checkupdates.sh",
     "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system
     "signal": 8

@@ -86,7 +86,6 @@ window#waybar {
 window#waybar.empty {
   background: alpha(@mantle, 0.2);
 }
-
 /* hide window title when no window */
 window#waybar.empty #window {
   padding: 0px;
