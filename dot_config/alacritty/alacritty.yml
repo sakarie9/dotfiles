@@ -13,10 +13,10 @@ font:
 
   size: 12
 
-import:
+#import:
 #  - ~/.config/alacritty/catppuccin-mocha.yml
 #  - ~/.config/alacritty/catppuccin-frappe.yml
-- ~/.config/alacritty/catppuccin-macchiato.yml
+  #- ~/.config/alacritty/catppuccin-macchiato.yml
 
 #colors:
   # Default colors

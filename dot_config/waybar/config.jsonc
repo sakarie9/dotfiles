@@ -5,9 +5,11 @@
   "spacing": 4,
   "modules-left": [
     "custom/launcher",
-    "hyprland/workspaces",
+    // "hyprland/workspaces",
+    "sway/workspaces",
     "mpris",
-    "hyprland/window"
+    // "hyprland/window"
+    "sway/window"
   ],
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
@@ -29,6 +31,9 @@
       "(.*) — Mozilla Firefox": "  $1"
     },
     "separate-outputs": true
+  },
+  "sway/workspaces": {
+    "format": "{name}"
   },
   "tray": {
     "icon-size": 21,
@@ -80,19 +85,18 @@
     "format": "{icon}  {volume}%",
     "format-muted": "",
     "on-click": "pavucontrol",
-    "on-click-right": "~/Scripts/roc-output-switch.sh",
+    "on-click-right": "roc-output-switch",
     "format-icons": ["", "", " "],
     "scroll-step": 2
   },
   "custom/easyeffects": {
     "format": "{}",
     "restart-interval": 1,
-    "exec": "~/Scripts/easyeffects-switch.sh",
-    "on-click": "~/Scripts/easyeffects-switch.sh switch"
+    "exec": "easyeffects-switch",
+    "on-click": "easyeffects-switch switch"
   },
   "custom/weather": {
     "interval": 1200,
-    "tooltip-format": "{tooltip}",
     "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'"
   },
   "custom/launcher": {
@@ -103,7 +107,7 @@
   "custom/pacman": {
     "format": "  {}",
     "interval": 7200, // every two hours
-    "exec": "~/Scripts/pacman-checkupdates.sh",
+    "exec": "pacman-checkupdates",
     "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system
     "signal": 8
   },

@@ -23,7 +23,7 @@ window#waybar {
   outline: none;
   border-bottom: none;
   color: @text;
-  padding: 0px 8px;
+  padding: 0px 0px;
   transition-property: background-color;
   transition-duration: 0.3s;
   border-radius: 0;
@@ -83,9 +83,9 @@ window#waybar {
 }
 
 /* do something when no window to whole waybar */
-window#waybar.empty {
-  background: alpha(@mantle, 0.2);
-}
+/*window#waybar.empty {*/
+/*  background: alpha(@mantle, 0.2);*/
+/*}*/
 /* hide window title when no window */
 window#waybar.empty #window {
   padding: 0px;
