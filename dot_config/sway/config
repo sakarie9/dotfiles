@@ -39,7 +39,7 @@ bindsym $mod+Shift+p exec wlogout -p layer-shell
 bindsym $mod+v exec copyq toggle
 
 # swayr
-bindsym $mod+tab exec swayr next-window current-workspace
+#bindsym $mod+tab exec swayr next-window current-workspace
 
 bindsym $mod+Grave workspace next_on_output
 
@@ -76,6 +76,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -172,7 +173,9 @@ bindsym $mod+r mode "resize"
 # App shortcuts
 #
     bindsym $mod+n exec nemo
+    # bindsym $mod+n exec thunar
     bindsym $mod+e exec firefox
+    bindsym $mod+m exec EDITOR=nvim foot yazi
 
 # Move the currently focused window to the scratchpad
 #bindsym $mod+Shift+minus move scratchpad

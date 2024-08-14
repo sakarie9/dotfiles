@@ -5,11 +5,11 @@
   "spacing": 4,
   "modules-left": [
     "custom/launcher",
-    // "hyprland/workspaces",
-    "sway/workspaces",
+    // "sway/workspaces",
+    "hyprland/workspaces",
     "mpris",
-    // "hyprland/window"
-    "sway/window"
+    // "sway/window"
+    "hyprland/window",
   ],
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
@@ -20,42 +20,44 @@
     "temperature",
     "wireplumber",
     "custom/easyeffects",
-    "custom/power"
+    "custom/power",
   ],
   "hyprland/workspaces": {
     "format": "{name}",
-    "show-special": true
+    "show-special": true,
+    "on-scroll-up": "hyprctl dispatch workspace m+1",
+    "on-scroll-down": "hyprctl dispatch workspace m-1",
   },
   "hyprland/window": {
     "rewrite": {
-      "(.*) — Mozilla Firefox": "  $1"
+      "(.*) — Mozilla Firefox": "  $1",
     },
-    "separate-outputs": true
+    "separate-outputs": true,
   },
   "sway/workspaces": {
-    "format": "{name}"
+    "format": "{name}",
   },
   "tray": {
     "icon-size": 21,
-    "spacing": 10
+    "spacing": 10,
   },
   "cpu": {
     "interval": 5,
     "format": "   {usage:2}% ({load:0.2f})",
-    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' htop"
+    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' htop",
   },
   "memory": {
     "interval": 5,
     "format": "   {used:0.1f}G/{total:0.1f}G ({percentage}%)",
     "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' btop",
-    "tooltip-format": "swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G"
+    "tooltip-format": "swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
   },
   "temperature": {
     "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
     "format-critical": "  {temperatureC}°C",
-    "format": "  {temperatureC}°C"
+    "format": "  {temperatureC}°C",
   },
   "mpris": {
     "format": "{status_icon} {title} - {artist}",
@@ -63,9 +65,9 @@
     "interval": 1,
     "status-icons": {
       "playing": " ",
-      "paused": " "
+      "paused": " ",
     },
-    "max-length": 50
+    "max-length": 50,
   },
   "clock": {
     "interval": 1,
@@ -77,9 +79,9 @@
     "calendar": {
       "format": {
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
   },
   "wireplumber": {
     "format": "{icon}  {volume}%",
@@ -87,33 +89,34 @@
     "on-click": "pavucontrol",
     "on-click-right": "roc-output-switch",
     "format-icons": ["", "", " "],
-    "scroll-step": 2
+    "scroll-step": 2,
   },
   "custom/easyeffects": {
     "format": "{}",
     "restart-interval": 1,
     "exec": "easyeffects-switch",
-    "on-click": "easyeffects-switch switch"
+    "on-click": "easyeffects-switch switch",
   },
   "custom/weather": {
     "interval": 1200,
-    "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'"
+    "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'",
   },
   "custom/launcher": {
     "format": "",
     "on-click": "rofi -show drun",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/pacman": {
     "format": "  {}",
     "interval": 7200, // every two hours
     "exec": "pacman-checkupdates",
-    "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system
-    "signal": 8
+    "on-click": "paru-tmux",
+    // "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system
+    "signal": 8,
   },
   "custom/power": {
     "format": "󰐥",
     "on-click": "wlogout -p layer-shell",
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }

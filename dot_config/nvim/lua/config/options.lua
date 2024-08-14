@@ -5,3 +5,5 @@
 vim.opt.relativenumber = false
 -- vim.g.autoformat = false -- globally
 -- vim.b.autoformat = false -- buffer-local
+-- vim.g.lazyvim_picker = "fzf"
+vim.opt.spelllang = { "en", "cjk" }
