@@ -1,7 +1,7 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 34,
+  "height": 32,
   "spacing": 4,
   "modules-left": [
     "custom/launcher",
@@ -44,12 +44,12 @@
   "cpu": {
     "interval": 5,
     "format": "   {usage:2}% ({load:0.2f})",
-    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' htop",
+    "on-click": "foot --override=font='monospace:size=10' htop",
   },
   "memory": {
     "interval": 5,
     "format": "   {used:0.1f}G/{total:0.1f}G ({percentage}%)",
-    "on-click": "foot --override=font='Sarasa Term SC Nerd:size=10' btop",
+    "on-click": "foot --override=font='monospace:size=10' btop",
     "tooltip-format": "swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
   },
   "temperature": {

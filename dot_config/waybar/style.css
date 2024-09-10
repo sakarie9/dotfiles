@@ -82,15 +82,11 @@ window#waybar {
   border-radius: 4px;
 }
 
-/* do something when no window to whole waybar */
-/*window#waybar.empty {*/
-/*  background: alpha(@mantle, 0.2);*/
-/*}*/
+#window {
+}
+
 /* hide window title when no window */
 window#waybar.empty #window {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
   background-color: transparent;
 }
 
