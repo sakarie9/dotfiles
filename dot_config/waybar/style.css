@@ -65,6 +65,7 @@ window#waybar {
 #window,
 #mpris,
 #tray,
+#idle_inhibitor,
 #cpu,
 #memory,
 #temperature,
