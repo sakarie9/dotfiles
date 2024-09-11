@@ -41,8 +41,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "󰒳 ",
-      "deactivated": "󰒲 ",
+      "activated": "󰒳",
+      "deactivated": "󰒲",
     },
     "tooltip-format-activated": "阻止休眠中",
     "tooltip-format-deactivated": "允许休眠中",
