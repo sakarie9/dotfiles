@@ -26,8 +26,8 @@
   "hyprland/workspaces": {
     "format": "{name}",
     "show-special": true,
-    "on-scroll-up": "hyprctl dispatch workspace m+1",
-    "on-scroll-down": "hyprctl dispatch workspace m-1",
+    "on-scroll-up": "hyprctl dispatch workspace m-1",
+    "on-scroll-down": "hyprctl dispatch workspace m+1",
   },
   "hyprland/window": {
     "rewrite": {
