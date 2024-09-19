@@ -35,8 +35,8 @@ Comment=Compress with 7z FLZMA2
 
 # What to run.  Enclose in < > to run an executable that resides in the actions folder.
 # **** REQUIRED ****
-#Exec=gedit %F
 Exec=foot -a foot-float zsh -c 'compress-7z %F'
+#Exec=compress-7z %F'
 
 # Icon name to use in the menu - must be a theme icon name
 # Icon-Name=kdeconnect
@@ -112,7 +112,7 @@ Quote=double
 #
 # Optional - by default this is false
 
-#Terminal=false
+# Terminal=true
 
 # Uri scheme - provide a uri scheme that the current location's scheme must match
 # For example:
