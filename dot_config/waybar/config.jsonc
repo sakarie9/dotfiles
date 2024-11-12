@@ -108,8 +108,8 @@
     "on-click": "easyeffects-switch switch",
   },
   "custom/weather": {
-    "interval": 1200,
-    "exec": "curl -s 'https://wttr.in/Zhengzhou?format=1&m'",
+    "interval": 7200,
+    "exec": "wttr-in",
   },
   "custom/launcher": {
     "format": "",
