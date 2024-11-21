@@ -5,11 +5,12 @@
   "spacing": 4,
   "modules-left": [
     "custom/launcher",
-    // "sway/workspaces",
-    "hyprland/workspaces",
+    "sway/workspaces",
+    // "hyprland/workspaces",
+    "sway/mode",
     "mpris",
-    // "sway/window"
-    "hyprland/window",
+    // "hyprland/window",
+    "sway/window",
   ],
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
@@ -35,6 +36,10 @@
     },
     "separate-outputs": true,
   },
+  "sway/mode": {
+    "format": " {}",
+    "max-length": 20,
+  },
   "sway/workspaces": {
     "format": "{name}",
   },
@@ -49,7 +54,7 @@
   },
   "tray": {
     "icon-size": 21,
-    "spacing": 10,
+    "spacing": 8,
   },
   "cpu": {
     "interval": 5,

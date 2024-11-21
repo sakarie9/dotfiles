@@ -23,7 +23,8 @@ window#waybar {
   outline: none;
   border-bottom: none;
   color: @text;
-  padding: 0px 8px;
+  /*padding: 0px 8px;*/
+  padding: 0px 0px;
   transition-property: background-color;
   transition-duration: 0.3s;
   border-radius: 0;
@@ -62,6 +63,7 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#mode,
 #window,
 #mpris,
 #tray,
