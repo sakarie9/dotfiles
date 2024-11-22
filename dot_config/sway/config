@@ -3,14 +3,11 @@ include catppuccin-macchiato
 
 # /usr/local/bin/sway-run
 
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
 set $term foot
 
 set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -106,18 +103,11 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # bindsym $mod+Shift+9 move container to workspace $ws9, exec $focus_ws $ws9
 # bindsym $mod+Shift+0 move container to workspace $ws10, exec $focus_ws $ws10
 
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
-#bindsym $mod+b splith
-#bindsym $mod+v splitv
-#bindsym $mod+s layout stacking
 bindsym $mod+g layout toggle tabbed split
 bindsym $mod+Shift+g layout toggle split stacking
 bindsym $mod+f fullscreen
-#bindsym $mod+grave layout toggle tabbed stacking
-# Toggle the current focus between tiling and floating mode 
 bindsym $mod+s floating toggle
+bindsym $mod+u focus parent
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+Shift+s focus mode_toggle
@@ -146,12 +136,6 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# Resize floating windows with mouse scroll:
-# bindsym --whole-window --border $mod+button4 resize shrink height 5 px or 5 ppt
-# bindsym --whole-window --border $mod+button5 resize grow height 5 px or 5 ppt
-# bindsym --whole-window --border $mod+shift+button4 resize shrink width 5 px or 5 ppt
-# bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 ppt
 
 #
 # Volume
@@ -210,7 +194,7 @@ bar {
 }
 #ea76cb
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $pink $crust $green $red
+client.focused           $lavender $pink $crust #209fb5 #e64553
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
