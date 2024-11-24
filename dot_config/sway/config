@@ -1,4 +1,3 @@
-include /etc/sway/config.d/50-systemd-user.conf
 include catppuccin-macchiato
 
 # /usr/local/bin/sway-run
@@ -8,7 +7,8 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term foot
+# set $term foot
+set $term footclient
 
 set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
@@ -22,7 +22,7 @@ smart_gaps on
 default_border pixel 2
 smart_borders on
 
-seat seat0 xcursor_theme catppuccin-frappe-light-cursors 24
+# seat seat0 xcursor_theme catppuccin-frappe-light-cursors 24
 
 # Bindings
 #bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
@@ -30,6 +30,8 @@ seat seat0 xcursor_theme catppuccin-frappe-light-cursors 24
 bindsym $mod+Return exec $term
 bindsym $mod+q exec sway-killactive-wrapper
 bindsym $mod+d exec --no-startup-id $menu
+
+
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+p exec wlogout -p layer-shell
 # bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
@@ -108,6 +110,7 @@ bindsym $mod+Shift+g layout toggle split stacking
 bindsym $mod+f fullscreen
 bindsym $mod+s floating toggle
 bindsym $mod+u focus parent
+bindsym $mod+i focus child
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+Shift+s focus mode_toggle
@@ -160,7 +163,8 @@ bindsym $mod+r mode "resize"
 #
     # bindsym $mod+n exec nemo
     bindsym $mod+n exec nautilus
-    bindsym $mod+e exec firefox
+    bindsym $mod+e exec zen
+    # bindsym $mod+e exec firefox
     bindsym $mod+m exec EDITOR=nvim foot yazi
 
 # Move the currently focused window to the scratchpad
@@ -172,7 +176,8 @@ bindsym $mod+Shift+minus move scratchpad, exec "pkill -RTMIN+7 waybar"
 #bindsym $mod+minus scratchpad show
 bindsym $mod+minus scratchpad show, exec "pkill -RTMIN+7 waybar"
 
-
+# bindsym $mod+Print exec wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +'%Y-%m-%d-%H-%M-%S').webm" -c libvpx-vp9
+# bindsym $mod+Print exec wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +'%Y-%m-%d-%H-%M-%S').webm" -c vp9_vaapi -d /dev/dri/renderD129
 # Screenshots
 set $grimshot /usr/share/sway-contrib/grimshot
 bindsym Print exec wayfreeze --hide-cursor --after-freeze-cmd '$grimshot --notify copy anything; killall wayfreeze'
@@ -192,6 +197,7 @@ bar {
     position top
     swaybar_command waybar
 }
+
 #ea76cb
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $pink $crust #209fb5 #e64553
@@ -202,3 +208,5 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 include $HOME/.config/sway/config.d/*
+include /etc/sway/config.d/50-systemd-user.conf
+

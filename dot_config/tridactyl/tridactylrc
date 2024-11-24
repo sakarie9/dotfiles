@@ -1,7 +1,81 @@
+" vim: filetype=vim
 
+" This wipes all existing settings. This means that if a setting in this file
+" is removed, then it will return to default. In other words, this file serves
+" as an enforced single point of truth for Tridactyl's configuration.
+sanitize tridactyllocal tridactylsync
+
+" Use browser to set correct browser
+set browser zen
+
+" Mine
+quickmark b www.bilibili.com
+quickmark s www.google.com
+quickmark g github.com
+
+bindurl www.bilibili.com f hint -Jc .main-content, .video-card, .up, [title="刷新"], [title="上一页"], [title="下一页"], .card-box .info a
 unbindurl www.bilibili.com w
 unbind <C-f>
 set smoothscroll true
+bind yr composite js document.location.href.match(/RJ\d+/)[0] | clipboard yank
+bind yi hint -iF e => {tri.excmds.yankimage(e.src)}
+
+bind J tabnext
+bind K tabprev
+bind d composite tabprev; tabclose #
+bind D tabclose
+
+" Buggy on zen
+" unbind D
+" bind Dj tabcloseallto right
+" bind Dk tabcloseallto left
+
+" editor
+set editorcmd foot --app-id tridactyl-editorcmd nvim %f '+normal!%lGzv%c|'
+alias editor_rm composite editor | jsb -p tri.native.run(`rm -f '${JS_ARG[0]}'`)
+bind --mode=insert <C-i> editor_rm
+bind --mode=input <C-i> editor_rm
+
+" ** Google
+" limit selectable links on google
+" https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search gf hint -Jtc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search gF hint -Jqbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+
+" ** Youtube
+" https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
+" disable hints for invisible elements (no js hinting)
+bindurl youtu((\.be)|(be\.com)) f hint -J
+bindurl youtu((\.be)|(be\.com)) F hint -b -J
+bindurl youtu((\.be)|(be\.com)) tf hint -t -J
+
+
+
+
+" burntsushi's
+" https://gist.github.com/BurntSushi/393546a65db38d57cedcfd72c6d89bf3
+
+" Ctrl-F should use the browser's native 'find' functionality.
+unbind <C-f>
+
+" But also support Tridactyl search too.
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+" Remove search highlighting.
+bind ,<Space> nohlsearch
+" Use sensitive case. Smart case would be nice here, but it doesn't work.
+set findcase sensitive
+
+" Smooth scrolling, yes please. This is still a bit janky in Tridactyl.
+set smoothscroll true
+
+" Don't run Tridactyl on some web sites because it doesn't work well, or
+" because the web site has its own keybindings.
+autocmd DocStart mail.google.com mode ignore
 
 
 " " bovine3dom's dogfood
@@ -60,8 +134,8 @@ bind ,g js let uri = document.location.href.replace(/https?:\/\//,"git@").replac
 " 
 " 
 " " make d take you to the left (I find it much less confusing)
-bind d composite tabprev; tabclose #
-bind D tabclose
+" bind d composite tabprev; tabclose #
+" bind D tabclose
 " 
 " " make t open the selection with tabopen
 " bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
@@ -91,7 +165,7 @@ bindurl www.google.com F hint -Jbc #search a
 " unbind --mode=ex <C-c>
 "
 " " Handy multiwindow/multitasking binds
-" bind gd tabdetach
+bind gd tabdetach
 " bind gD composite tabduplicate; tabdetach
 " 
 " " Stupid workaround to let hint -; be used with composite which steals semi-colons

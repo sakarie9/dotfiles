@@ -24,7 +24,7 @@ window#waybar {
   border-bottom: none;
   color: @text;
   /*padding: 0px 8px;*/
-  padding: 0px 0px;
+  padding: 0px 8px;
   transition-property: background-color;
   transition-duration: 0.3s;
   border-radius: 0;
@@ -45,7 +45,7 @@ window#waybar {
   background: @overlay1;
   color: @crust;
   transition-property: background-color;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 #workspaces button.focused,
