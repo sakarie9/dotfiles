@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun";
+    modi: "run,drun,window";
     show-icons: true;
     terminal: "foot";
     drun-display-format: "{icon} {name}";
@@ -9,11 +9,10 @@ configuration{
     hide-scrollbar: true;
     display-drun: "   Apps ";
     display-run: "   Run ";
-    display-window: " 﩯  Window";
+    display-window: " 󰕰  Window";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
     kb-cancel: "Escape,Super_L,MouseSecondary";
-    show-icons:         true;
     icon-theme:         "Papirus";
     font:               "Sarasa UI SC 14";
 }
