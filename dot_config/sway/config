@@ -14,6 +14,8 @@ set $term footclient
 # set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 set $menu fuzzel
 
+exec $HOME/.config/sway/scripts/exec-portal-related.sh
+
 # Visual
 gaps inner 2
 #gaps outer 2
@@ -31,10 +33,10 @@ smart_borders on
 # mouse button for dragging.
 floating_modifier $mod normal
 
-bar {
-    position top
-    swaybar_command waybar
-}
+# bar {
+#     position top
+#     swaybar_command waybar
+# }
 
 # Theme
 #ea76cb

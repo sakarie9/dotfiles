@@ -108,9 +108,11 @@
   },
   "custom/easyeffects": {
     "format": "{}",
-    "restart-interval": 1,
+    "interval": 60,
     "exec": "easyeffects-switch",
     "on-click": "easyeffects-switch switch",
+    "signal": 9,
+    "tooltip": false,
   },
   "custom/weather": {
     "interval": 7200,
@@ -118,12 +120,12 @@
   },
   "custom/launcher": {
     "format": "",
-    "on-click": "rofi -show drun",
+    "on-click": "fuzzel",
     "tooltip": false,
   },
   "custom/pacman": {
     "format": "  {}",
-    "interval": 7200, // every two hours
+    "interval": 14400, // every four hours
     "exec": "pacman-checkupdates",
     "on-click": "paru-tmux",
     // "on-click": "foot paru; pkill -SIGRTMIN+8 waybar; read -p 'Press enter to continue'", // update system

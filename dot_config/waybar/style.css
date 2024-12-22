@@ -1,7 +1,7 @@
 @import "themes/frappe.css";
 
 * {
-  font-family: "Sarasa Gothic SC", "JetBrainsMono Nerd Font";
+  font-family: "system-ui", "JetBrainsMono Nerd Font";
   font-size: 11pt;
   min-height: 0;
 }
