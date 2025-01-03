@@ -130,7 +130,7 @@ autocmd DocStart mail.google.com mode ignore
 bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git") | clipboard yank
 " 
 " " As above but execute it and open terminal in folder
-bind ,g js let uri = document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git"); tri.native.run("cd /tmpfs; git clone " + uri + "; cd \"$(basename \"" + uri + "\" .git)\"; st")
+bind ,g js let uri = `git@github.com:${window.location.pathname.split('/')[1]}/${window.location.pathname.split('/')[2]}.git` ; tri.native.run("cd /tmpfs; git clone " + uri + "; cd \"$(basename \"" + uri + "\" .git)\"; foot")
 " 
 " 
 " " make d take you to the left (I find it much less confusing)

@@ -7,3 +7,4 @@ vim.opt.relativenumber = false
 -- vim.b.autoformat = false -- buffer-local
 -- vim.g.lazyvim_picker = "fzf"
 vim.opt.spelllang = { "en", "cjk" }
+vim.o.shell = "/bin/fish"

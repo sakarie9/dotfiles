@@ -10,7 +10,7 @@ set $down j
 set $up k
 set $right l
 # set $term foot
-set $term footclient
+set $term footclient fish
 # set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 set $menu fuzzel
 
