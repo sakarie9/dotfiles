@@ -25,4 +25,7 @@ elif [ "$tg_window_visible" == "true" ]; then
 
   # 然后将 Telegram 窗口从 scratchpad 显示到前台
   swaymsg "[con_id=$tg_window_id]" scratchpad show
+else
+  # 不可见，但也不在 scratchpad
+  swaymsg "[con_id=$tg_window_id]" scratchpad show
 fi

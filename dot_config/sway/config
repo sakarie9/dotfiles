@@ -10,7 +10,7 @@ set $down j
 set $up k
 set $right l
 # set $term foot
-set $term footclient fish
+set $term footclient
 # set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 set $menu fuzzel
 
@@ -23,6 +23,7 @@ smart_gaps on
 #font pango: WenQuanYi Micro Hei 9
 default_border pixel 2
 smart_borders on
+focus_follows_mouse always
 
 # seat seat0 xcursor_theme catppuccin-frappe-light-cursors 24
 

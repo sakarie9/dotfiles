@@ -3,8 +3,12 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 
     # EDITOR
-    set -gx EDITOR nvim
-    set -gx DIFFPROG "nvim -d $1"
+    if type -q nvim
+        set -gx EDITOR nvim
+        set -gx VISUAL nvim
+        set -gx DIFFPROG "nvim -d $1"
+        set -gx MANPAGER "nvim +Man!"
+    end
 
     # PATH
     fish_add_path "~/go/bin"
@@ -31,7 +35,8 @@ if status is-interactive
     abbr -a p paru-tmux
     abbr -a n nvim
     abbr -a fm 'xdg-open . >/dev/null 2>&1 & disown'
-    abbr -a fishrc 'nvim ~/.config/fish/config.fish'
+    # abbr -a fishrc 'nvim ~/.config/fish/config.fish'
+    abbr -a zshrc 'nvim ~/.config/zsh/.zshrc'
     abbr -a dg 'sudo downgrade --pacman-cache /mnt/data/.pacman-pkgs/pkg'
     abbr -a kdecs "kdeconnect-cli --device 2ea3fde39bae90a9 --share "
     abbr -a tmpfs 'cd /tmpfs'
@@ -44,6 +49,13 @@ if status is-interactive
     abbr -a dcl docker compose logs
     abbr -a dclf docker compose logs -f
     abbr -a dclF docker compose logs -f --tail 0
+
+    # fishrc
+    function fishrc
+        pushd ~/.config/fish
+        nvim ~/.config/fish/config.fish
+        popd
+    end
 
     # yazi
     function y
@@ -74,6 +86,23 @@ if status is-interactive
         # resetting all bindings.
         # The argument specifies the initial mode (insert, "default" or visual).
         fish_vi_key_bindings --no-erase insert
+    end
+
+    function clone --description "git clone something, cd into it."
+        git clone --depth=1 $argv[1]
+        cd (basename $argv[1] | sed 's/.git$//')
+    end
+
+    function md --wraps mkdir -d "Create a directory and cd into it"
+        command mkdir -p $argv
+        if test $status = 0
+            switch $argv[(count $argv)]
+                case '-*'
+                case '*'
+                    cd $argv[(count $argv)]
+                    return
+            end
+        end
     end
 
 end
