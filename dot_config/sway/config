@@ -1,5 +1,6 @@
 # vim: ft=swayconfig
 
+include /etc/sway/config.d/50-systemd-user.conf
 include catppuccin-macchiato
 
 # /usr/local/bin/sway-run
@@ -50,5 +51,5 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 include $HOME/.config/sway/config.d/*
-include /etc/sway/config.d/50-systemd-user.conf
+
 

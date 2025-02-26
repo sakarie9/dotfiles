@@ -11,15 +11,17 @@ if status is-interactive
     end
 
     # PATH
-    fish_add_path "~/go/bin"
-    fish_add_path "~/.local/share/cargo/bin"
+    fish_add_path --path "$HOME/go/bin"
+    fish_add_path --path "$HOME/.local/share/cargo/bin"
 
     # Include Secrets
     source $ZDOTDIR/.zshrc-secrets
 
     # Plugins
     # zoxide
-    zoxide init fish | source
+    if type -q zoxide
+        zoxide init fish | source
+    end
 
     # tide
     tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' \
@@ -29,7 +31,10 @@ if status is-interactive
 
     # abbr
     abbr -a ls eza
-    abbr -a l 'eza -lah --time-style=iso --git --icons=auto'
+    function l
+        eza -lah --time-style=iso --git --icons=auto $argv
+    end
+    # abbr -a l 'eza -lah --time-style=iso --git --icons=auto'
     abbr -a df 'duf --hide-mp "/run/credentials/*,/run/user/1000/psd/*"'
     abbr -a lg lazygit
     abbr -a p paru-tmux
@@ -41,6 +46,7 @@ if status is-interactive
     abbr -a kdecs "kdeconnect-cli --device 2ea3fde39bae90a9 --share "
     abbr -a tmpfs 'cd /tmpfs'
     abbr -a --position anywhere cfg ~/.config
+    abbr -a chexe 'chmod +x'
 
     # plugins from zsh
     abbr -a dcup docker compose up
@@ -68,7 +74,28 @@ if status is-interactive
     end
 
     # atuin
-    atuin init fish --disable-up-arrow | source
+    if type -q atuin
+        atuin init fish --disable-up-arrow | source
+    end
+
+    function whichpkg --description "Find the package that owns the command"
+        # 如果没有传入参数，则显示用法并退出
+        if test (count $argv) -eq 0
+            echo "用法：whichpkg <command>"
+            return 1
+        end
+
+        # command -v 可以获取命令的绝对路径，如果不存在则会返回空
+        set -l cmd_path (command -v $argv[1])
+        if test -z "$cmd_path"
+            echo "错误：无法找到名为 '$argv[1]' 的可执行文件。"
+            return 1
+        end
+
+        # 使用 pacman -Qo 命令查找此命令所属的包
+        pacman -Qo $cmd_path
+    end
+    complete -c whichpkg -f -w which
 
     # multicd
     function multicd
@@ -77,15 +104,30 @@ if status is-interactive
     abbr --add dotdot --regex '^\.\.+$' --function multicd
 
     # vi-mode
-    function fish_user_key_bindings
-        # Execute this once per mode that emacs bindings should be used in
-        fish_default_key_bindings -M insert
+    # function fish_user_key_bindings
+    #     # Execute this once per mode that emacs bindings should be used in
+    #     fish_default_key_bindings -M insert
+    #
+    #     # Then execute the vi-bindings so they take precedence when there's a conflict.
+    #     # Without --no-erase fish_vi_key_bindings will default to
+    #     # resetting all bindings.
+    #     # The argument specifies the initial mode (insert, "default" or visual).
+    #     fish_vi_key_bindings --no-erase insert
+    # end
+    fish_hybrid_key_bindings --no-erase
+    bind -M insert ctrl-n down-or-search
 
-        # Then execute the vi-bindings so they take precedence when there's a conflict.
-        # Without --no-erase fish_vi_key_bindings will default to
-        # resetting all bindings.
-        # The argument specifies the initial mode (insert, "default" or visual).
-        fish_vi_key_bindings --no-erase insert
+    if type -q aichat
+        function _aichat_fish
+            set -l _old (commandline)
+            if test -n $_old
+                echo -n "⌛"
+                commandline -f repaint
+                commandline (aichat -e $_old)
+            end
+        end
+        bind -M insert alt-a _aichat_fish
+        bind -M default alt-a _aichat_fish
     end
 
     function clone --description "git clone something, cd into it."

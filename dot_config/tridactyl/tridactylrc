@@ -8,17 +8,28 @@ sanitize tridactyllocal tridactylsync
 " Use browser to set correct browser
 set browser zen
 
-" Mine
+" gnb gns gng
 quickmark b www.bilibili.com
 quickmark s www.google.com
 quickmark g github.com
 
 bindurl www.bilibili.com f hint -Jc .main-content, .video-card, .up, [title="刷新"], [title="上一页"], [title="下一页"], .card-box .info a
 unbindurl www.bilibili.com w
+
 unbind <C-f>
+unbind <C-b>
+" unbind <C-u>
+" unbind <C-d>
+unbind <C-y>
+unbind <C-e>
+
 set smoothscroll true
 bind yr composite js document.location.href.match(/RJ\d+/)[0] | clipboard yank
 bind yi hint -iF e => {tri.excmds.yankimage(e.src)}
+
+" Reverse s and S
+bind s fillcmdline tabopen search
+bind S fillcmdline open search
 
 bind J tabnext
 bind K tabprev
@@ -58,7 +69,7 @@ bindurl youtu((\.be)|(be\.com)) tf hint -t -J
 " https://gist.github.com/BurntSushi/393546a65db38d57cedcfd72c6d89bf3
 
 " Ctrl-F should use the browser's native 'find' functionality.
-unbind <C-f>
+" unbind <C-f>
 
 " But also support Tridactyl search too.
 bind / fillcmdline find
@@ -71,11 +82,13 @@ bind ,<Space> nohlsearch
 set findcase sensitive
 
 " Smooth scrolling, yes please. This is still a bit janky in Tridactyl.
-set smoothscroll true
+" set smoothscroll true
 
 " Don't run Tridactyl on some web sites because it doesn't work well, or
 " because the web site has its own keybindings.
 autocmd DocStart mail.google.com mode ignore
+
+autocmd DocStart www.edclub.com mode ignore
 
 
 " " bovine3dom's dogfood
