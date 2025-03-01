@@ -48,13 +48,8 @@ if status is-interactive
     abbr -a --position anywhere cfg ~/.config
     abbr -a chexe 'chmod +x'
 
-    # plugins from zsh
-    abbr -a dcup docker compose up
-    abbr -a dcupd docker compose up -d
-    abbr -a dcdn docker compose down
-    abbr -a dcl docker compose logs
-    abbr -a dclf docker compose logs -f
-    abbr -a dclF docker compose logs -f --tail 0
+    abbr -a screenrec 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".webm -c libvpx-vp9'
+    abbr -a screenreca 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".mp4 -c hevc_vaapi -a -d /dev/dri/renderD129'
 
     # fishrc
     function fishrc
