@@ -15,7 +15,10 @@ if status is-interactive
     fish_add_path --path "$HOME/.local/share/cargo/bin"
 
     # Include Secrets
-    source $ZDOTDIR/.zshrc-secrets
+    set -l SECRET_FILE $ZDOTDIR/.zshrc-secrets
+    if type -q $SECRET_FILE
+        source $SECRET_FILE
+    end
 
     # Plugins
     # zoxide
