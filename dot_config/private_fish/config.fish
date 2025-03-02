@@ -16,7 +16,7 @@ if status is-interactive
 
     # Include Secrets
     set -l SECRET_FILE $ZDOTDIR/.zshrc-secrets
-    if type -q $SECRET_FILE
+    if test -f $SECRET_FILE
         source $SECRET_FILE
     end
 
