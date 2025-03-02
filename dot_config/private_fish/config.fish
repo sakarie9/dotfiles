@@ -40,7 +40,6 @@ if status is-interactive
     # abbr -a l 'eza -lah --time-style=iso --git --icons=auto'
     abbr -a df 'duf --hide-mp "/run/credentials/*,/run/user/1000/psd/*"'
     abbr -a lg lazygit
-    abbr -a p paru-tmux
     abbr -a n nvim
     abbr -a fm 'xdg-open . >/dev/null 2>&1 & disown'
     # abbr -a fishrc 'nvim ~/.config/fish/config.fish'
@@ -53,6 +52,12 @@ if status is-interactive
 
     abbr -a screenrec 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".webm -c libvpx-vp9'
     abbr -a screenreca 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".mp4 -c hevc_vaapi -a -d /dev/dri/renderD129'
+
+    if type -q paru-tmux
+        abbr -a p paru-tmux
+    else if type -q paru
+        abbr -a p paru
+    end
 
     # fishrc
     function fishrc
