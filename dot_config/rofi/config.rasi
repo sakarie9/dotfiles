@@ -1,5 +1,6 @@
 configuration{
-    modi: "run,drun,window";
+    // modi: "run,drun,window";
+    modi: "drun,window";
     show-icons: true;
     terminal: "foot";
     drun-display-format: "{icon} {name}";
@@ -15,6 +16,9 @@ configuration{
     kb-cancel: "Escape,Super_L,MouseSecondary";
     icon-theme:         "Papirus";
     font:               "Sarasa UI SC 14";
+    window-format: "{w}{c}\n<span weight='light' size='x-small'><i>{t}</i></span>";
+    eh: 2;
+    drun-display-format: "{name}\n[<span weight='light' size='x-small'><i>({generic})</i></span>]";
 }
 
-@theme "catppuccin-frappe"
+@theme "catppuccin-frappe-old"

@@ -15,7 +15,7 @@ set $term footclient
 # set $menu rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 set $menu fuzzel
 
-exec $HOME/.config/sway/scripts/exec-portal-related.sh
+# exec $HOME/.config/sway/scripts/exec-portal-related.sh
 
 # Visual
 gaps inner 2
@@ -52,4 +52,14 @@ client.background        $base
 
 include $HOME/.config/sway/config.d/*
 
-
+# exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+# exec systemctl --user import-environment DISPLAY \
+#                                          SWAYSOCK \
+#                                          WAYLAND_DISPLAY \
+#                                          XDG_CURRENT_DESKTOP
+#
+# exec hash dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY \
+#                                                   SWAYSOCK \
+#                                                   XDG_CURRENT_DESKTOP=sway \
+#                                                   WAYLAND_DISPLAY

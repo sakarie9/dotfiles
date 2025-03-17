@@ -15,9 +15,8 @@ if status is-interactive
     fish_add_path --path "$HOME/.local/share/cargo/bin"
 
     # Include Secrets
-    set -l SECRET_FILE $ZDOTDIR/.zshrc-secrets
-    if test -f $SECRET_FILE
-        source $SECRET_FILE
+    if set -q ZDOTDIR; and test -f "$ZDOTDIR/.zshrc-secrets"
+        source "$ZDOTDIR/.zshrc-secrets"
     end
 
     # Plugins
@@ -49,9 +48,23 @@ if status is-interactive
     abbr -a tmpfs 'cd /tmpfs'
     abbr -a --position anywhere cfg ~/.config
     abbr -a chexe 'chmod +x'
+    abbr -e sc-reboot
 
     abbr -a screenrec 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".webm -c libvpx-vp9'
     abbr -a screenreca 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".mp4 -c hevc_vaapi -a -d /dev/dri/renderD129'
+
+    function gama
+        set -lx GITHUB_TOKEN (gh auth token)
+        command gama $argv
+    end
+
+    function 7ze --description "Generate a 7z archive with password and header encryption"
+        if test (count $argv) -lt 1
+            echo "Usage: 7ze <file_or_directory>"
+            return 1
+        end
+        7z a -p -mhe=on "$argv[1].7z" "$argv[1]"
+    end
 
     if type -q paru-tmux
         abbr -a p paru-tmux

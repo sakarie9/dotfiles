@@ -5,14 +5,15 @@
   "spacing": 4,
   "modules-left": [
     "custom/launcher",
-    "sway/workspaces",
+    // "sway/workspaces",
     // "hyprland/workspaces",
-    // "niri/workspaces",
-    "sway/mode",
+    // "hyprland/submap",
+    "niri/workspaces",
+    // "sway/mode",
     "mpris",
+    // "sway/window",
     // "hyprland/window",
-    // "niri/window",
-    "sway/window",
+    "niri/window",
   ],
   "modules-center": ["clock", "custom/weather"],
   "modules-right": [
@@ -29,6 +30,7 @@
   "hyprland/workspaces": {
     "format": "{name}",
     "show-special": true,
+    "special-visible-only": true,
     "on-scroll-up": "hyprctl dispatch workspace m-1",
     "on-scroll-down": "hyprctl dispatch workspace m+1",
   },
