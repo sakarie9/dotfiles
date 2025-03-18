@@ -26,10 +26,12 @@ if status is-interactive
     end
 
     # tide
-    tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' \
-        --lean_prompt_height='Two lines' --prompt_connection=Dotted \
-        --prompt_connection_andor_frame_color=Dark --prompt_spacing=Compact \
-        --icons='Few icons' --transient=Yes
+    if not set -q _tide_left_items
+        tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' \
+            --lean_prompt_height='Two lines' --prompt_connection=Dotted \
+            --prompt_connection_andor_frame_color=Dark --prompt_spacing=Compact \
+            --icons='Few icons' --transient=Yes
+    end
 
     # abbr
     abbr -a ls eza

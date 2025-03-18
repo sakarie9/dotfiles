@@ -40,7 +40,7 @@ input {
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 
-    workspace-auto-back-and-forth
+    // workspace-auto-back-and-forth
 }
 
 // You can configure outputs by their name, which you can find
@@ -61,7 +61,7 @@ output "DVI-D-2" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     tab-indicator {
-        hide-when-single-tab
+        // hide-when-single-tab
         place-within-column
         length total-proportion=1.0
         // position "right"
@@ -293,15 +293,16 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
 
 
-    Mod+Q { close-window; }
+    // Mod+Q { close-window; }
+    Mod+Q { spawn "niri-killactive-wrapper"; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -493,8 +494,9 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    // Mod+Shift+E { quit; }
+    // Ctrl+Alt+Delete { quit; }
+    Mod+Shift+P { spawn "wlogout" "-p" "layer-shell"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.

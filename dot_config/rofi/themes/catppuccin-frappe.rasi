@@ -1,29 +1,117 @@
 * {
-  rosewater: #f2d5cf;
-  flamingo: #eebebe;
-  pink: #f4b8e4;
-  mauve: #ca9ee6;
-  red: #e78284;
-  maroon: #ea999c;
-  peach: #ef9f76;
-  yellow: #e5c890;
-  green: #a6d189;
-  teal: #81c8be;
-  sky: #99d1db;
-  sapphire: #85c1dc;
-  blue: #8caaee;
-  lavender: #babbf1;
-  text: #c6d0f5;
-  subtext1: #b5bfe2;
-  subtext0: #a5adce;
-  overlay2: #949cbb;
-  overlay1: #838ba7;
-  overlay0: #737994;
-  surface2: #626880;
-  surface1: #51576d;
-  surface0: #414559;
-  base: #303446;
-  mantle: #292c3c;
-  crust: #232634;
+    bg-col:  #303446;
+    bg-col-light: #303446;
+    border-col: #303446;
+    selected-col: #414559;
+    blue: #8caaee;
+    fg-col: #c6d0f5;
+    fg-col2: #e78284;
+    grey: #737994;
+
+    width: 800;
+    font: "Sarasa Mono SC Nerd 14";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 600px;
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+    border-radius: 8px;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 6px;
+    text-color: @bg-col;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
+    columns: 2;
+    lines: 5;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @fg-col;
+    spacing: 8px;
+}
+
+element-icon {
+    size: 1.5em;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+}
+
+mode-switcher {
+    spacing: 0;
   }
 
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @blue;
+}
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @bg-col-light;
+}

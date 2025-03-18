@@ -16,9 +16,9 @@ configuration{
     kb-cancel: "Escape,Super_L,MouseSecondary";
     icon-theme:         "Papirus";
     font:               "Sarasa UI SC 14";
-    window-format: "{w}{c}\n<span weight='light' size='x-small'><i>{t}</i></span>";
+    window-format: "{w}{c}\n<span weight='light' size='x-small'>{t}</span>";
     eh: 2;
-    drun-display-format: "{name}\n[<span weight='light' size='x-small'><i>({generic})</i></span>]";
+    drun-display-format: "{name}\n[<span weight='light' size='x-small'>({generic})</span>]";
 }
 
-@theme "catppuccin-frappe-old"
+@theme "catppuccin-frappe"
