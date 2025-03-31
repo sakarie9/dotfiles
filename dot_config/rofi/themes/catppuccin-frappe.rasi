@@ -70,6 +70,7 @@ element {
     background-color: @bg-col;
     text-color: @fg-col;
     spacing: 8px;
+    border-radius: 5px;
 }
 
 element-icon {
@@ -87,8 +88,6 @@ element selected {
 }
 
 mode-switcher {
-      background-color: #000000;
-
     spacing: 0;
 }
 
