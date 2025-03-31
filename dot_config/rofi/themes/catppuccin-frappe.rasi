@@ -9,17 +9,18 @@
     grey: #737994;
 
     width: 800;
-    font: "Sarasa Mono SC Nerd 14";
+    // font: "sans-serif 14";
 }
 
-element-text, element-icon , mode-switcher {
+element-text, element-icon, mode-switcher {
     background-color: inherit;
     text-color:       inherit;
 }
 
 window {
-    height: 600px;
-    border: 3px;
+    // let listview-lines decide height
+    // height: 600px;
+    // border: 8px;
     border-color: @border-col;
     background-color: @bg-col;
     border-radius: 8px;
@@ -38,10 +39,10 @@ inputbar {
 
 prompt {
     background-color: @blue;
-    padding: 6px;
+    padding: 8px 12px 8px 8px;
     text-color: @bg-col;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
+    border-radius: 6px;
+    margin: 18px 0px 4px 20px;
 }
 
 textbox-prompt-colon {
@@ -57,22 +58,22 @@ entry {
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    padding: 6px 0px 0px 0px;
+    margin: 0px 20px 0px 20px;
     columns: 2;
-    lines: 5;
+    lines: 8;
     background-color: @bg-col;
 }
 
 element {
-    padding: 5px;
+    padding: 4px;
     background-color: @bg-col;
     text-color: @fg-col;
     spacing: 8px;
 }
 
 element-icon {
+    margin: 4px;
     size: 1.5em;
 }
 
@@ -81,25 +82,28 @@ element-text {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color:  @selected-col;
+    text-color: @fg-col2;
 }
 
 mode-switcher {
+      background-color: #000000;
+
     spacing: 0;
-  }
+}
 
 button {
-    padding: 10px;
+    padding: 6px 0px 12px 0px;
+    // background-color: #FFFFFF;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5; 
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    background-color: @bg-col;
+    text-color: @blue;
 }
 
 message {

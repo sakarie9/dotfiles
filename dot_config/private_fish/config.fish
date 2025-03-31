@@ -55,10 +55,10 @@ if status is-interactive
     abbr -a screenrec 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".webm -c libvpx-vp9'
     abbr -a screenreca 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".mp4 -c hevc_vaapi -a -d /dev/dri/renderD129'
 
-    function gama
-        set -lx GITHUB_TOKEN (gh auth token)
-        command gama $argv
-    end
+    # function gama
+    #     set -lx GITHUB_TOKEN (gh auth token)
+    #     command gama $argv
+    # end
 
     function 7ze --description "Generate a 7z archive with password and header encryption"
         if test (count $argv) -lt 1
@@ -149,7 +149,7 @@ if status is-interactive
     end
 
     function clone --description "git clone something, cd into it."
-        git clone --depth=1 $argv[1]
+        git clone --depth=1 $argv
         cd (basename $argv[1] | sed 's/.git$//')
     end
 

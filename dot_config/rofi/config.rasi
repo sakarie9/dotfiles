@@ -3,21 +3,20 @@ configuration{
     modi: "drun,window";
     show-icons: true;
     terminal: "foot";
-    drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
-    cache-dir: "/home/sakari/.local/share/rofi/rofi.cache";
-    hide-scrollbar: true;
+    cache-dir: "~/.local/share/rofi/rofi.cache";
+    // hide-scrollbar: true;
     display-drun: "   Apps ";
-    display-run: "   Run ";
+    // display-run: "   Run ";
     display-window: " 󰕰  Window";
-    display-Network: " 󰤨  Network";
+    // display-Network: " 󰤨  Network";
     sidebar-mode: true;
     kb-cancel: "Escape,Super_L,MouseSecondary";
     icon-theme:         "Papirus";
-    font:               "Sarasa UI SC 14";
-    window-format: "{w}{c}\n<span weight='light' size='x-small'>{t}</span>";
+    font:               "sans-serif 14";
     eh: 2;
+    window-format: "{t}\n<span weight='light' size='x-small'>{c}</span>";
     drun-display-format: "{name}\n[<span weight='light' size='x-small'>({generic})</span>]";
 }
 

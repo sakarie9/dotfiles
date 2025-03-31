@@ -124,7 +124,8 @@
   },
   "custom/launcher": {
     "format": "",
-    "on-click": "fuzzel",
+    "on-click": "rofi -show drun",
+    "on-click-right": "rofi -show window",
     "tooltip": false,
   },
   "custom/pacman": {
