@@ -10,9 +10,16 @@ if status is-interactive
         set -gx MANPAGER "nvim +Man!"
     end
 
+    # alias sudo=sudo-rs
+
     # PATH
     fish_add_path --path "$HOME/go/bin"
     fish_add_path --path "$HOME/.local/share/cargo/bin"
+    ## Android
+    # set -gx ANDROID_HOME "$HOME/Android/Sdk"
+    # set -gx ANDROID_AVD_HOME "$HOME/Android/avd"
+    # fish_add_path --path "$ANDROID_HOME/emulator"
+    alias emulator="$ANDROID_HOME/emulator/emulator"
 
     # Include Secrets
     if set -q ZDOTDIR; and test -f "$ZDOTDIR/.zshrc-secrets"
@@ -46,11 +53,12 @@ if status is-interactive
     # abbr -a fishrc 'nvim ~/.config/fish/config.fish'
     abbr -a zshrc 'nvim ~/.config/zsh/.zshrc'
     abbr -a dg 'sudo downgrade --pacman-cache /mnt/data/.pacman-pkgs/pkg'
-    abbr -a kdecs "kdeconnect-cli --device 2ea3fde39bae90a9 --share "
+    abbr -a kdecs "kdeconnect-cli -n 'OnePlus 7' --share "
     abbr -a tmpfs 'cd /tmpfs'
     abbr -a --position anywhere cfg ~/.config
     abbr -a chexe 'chmod +x'
     abbr -e sc-reboot
+    abbr -a suedit sudoedit
 
     abbr -a screenrec 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".webm -c libvpx-vp9'
     abbr -a screenreca 'wf-recorder -g "$(slurp)" -f $HOME/Videos/screenrecords/"$(date +%Y-%m-%d-%H-%M-%S)".mp4 -c hevc_vaapi -a -d /dev/dri/renderD129'

@@ -3,12 +3,13 @@ return {
     "zbirenbaum/copilot.lua",
     opts = {
       filetypes = {
+        yaml = true,
         markdown = true,
         help = true,
-        yaml = true,
         gitcommit = true,
         gitrebase = true,
       },
     },
+    copilot_model = "gpt-4o-copilot",
   },
 }

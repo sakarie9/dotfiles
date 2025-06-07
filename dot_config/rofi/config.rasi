@@ -7,7 +7,7 @@ configuration{
     disable-history: false;
     cache-dir: "~/.local/share/rofi/rofi.cache";
     // hide-scrollbar: true;
-    display-drun: "   Apps ";
+    display-drun: "   App ";
     // display-run: "   Run ";
     display-window: " 󰕰  Window";
     // display-Network: " 󰤨  Network";

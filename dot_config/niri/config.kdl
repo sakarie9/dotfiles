@@ -3,21 +3,23 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "foot" "-s"
-spawn-at-startup "telegram-desktop" "-startintray"
+spawn-at-startup "Telegram" "-startintray"
 spawn-at-startup "kdeconnect-indicator"
 spawn-at-startup "copyq" "--start-server"
-spawn-at-startup "wallpaper-changer"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "hypridle"
+spawn-at-startup "wallpaper-changer"
+spawn-at-startup "wallpaper-changer" "set-niri-backdrop"
+// spawn-at-startup "xwayland-satellite" ":12"
+spawn-at-startup "run_xwayland-satellite"
 
 environment {
-    DISPLAY ":0"
+    DISPLAY ":12"
     MOZ_ENABLE_WAYLAND "1"
     _JAVA_AWT_WM_NONREPARENTING "1"
-    // GTK_IM_MODULE "fcitx"
+    GTK_IM_MODULE "fcitx"
     // GTK_IM_MODULE "wayland"
     QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
@@ -32,6 +34,10 @@ environment {
 input {
     mouse {
         accel-profile "flat"
+    }
+
+    keyboard {
+        numlock
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -252,10 +258,24 @@ window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
-
-// Steam notification
+// Steam
+window-rule {
+    match app-id="steam" title=r#"^好友列表$"#
+    open-floating true
+}
+// FileRoller
 window-rule {
     match app-id="org.gnome.FileRoller"
+    open-floating true
+}
+// Android Emulator
+window-rule {
+    match app-id="Emulator" title=r#"^Emulator$"#
+    open-floating false
+}
+// KDE Connect
+window-rule {
+    match app-id="org.kde.kdeconnect.daemon"
     open-floating true
 }
 
@@ -268,9 +288,17 @@ layer-rule {
     geometry-corner-radius 8
 }
 
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
 binds {
     Mod+G { toggle-column-tabbed-display; }
-    Mod+Tab { focus-column-right-or-first; }
+    // Mod+Tab { focus-column-right-or-first; }
+    Mod+Tab repeat=false { toggle-overview; }
+    // Mod { toggle-overview; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -299,10 +327,10 @@ binds {
     Mod+Q hotkey-overlay-title="Close Focused Window" { spawn "niri-killactive-wrapper"; }
 
     // WASD
-    Mod+A     { focus-column-or-monitor-left; }
+    Mod+A     { focus-column-left; }
     Mod+S     { focus-window-or-workspace-down; }
     Mod+W     { focus-window-or-workspace-up; }
-    Mod+D     { focus-column-or-monitor-right; }
+    Mod+D     { focus-column-right; }
     Mod+Ctrl+A     { move-column-left; }
     Mod+Ctrl+S     { move-window-down-or-to-workspace-down; }
     Mod+Ctrl+W     { move-window-up-or-to-workspace-up; }
@@ -488,11 +516,10 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    // Print { screenshot show-pointer=false; }
-    // Ctrl+Print { screenshot-screen show-pointer=false; }
-    // Alt+Print { screenshot-window show-pointer=false; }
-    Print { screenshot; }
-    Shift+Print { screenshot-screen; }
+    Print { screenshot show-pointer=false; }
+    Shift+Print { screenshot-screen show-pointer=false; }
+    // Print { screenshot; }
+    // Shift+Print { screenshot-screen; }
     Ctrl+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
@@ -515,7 +542,11 @@ binds {
     // Mod+Shift+P { power-off-monitors; }
 }
 
-// debug {
-//     render-drm-device "/dev/dri/renderD129"
-// }
+overview {
+    zoom 0.25
+}
+
+debug {
+    render-drm-device "/dev/dri/renderD129"
+}
 

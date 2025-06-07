@@ -59,6 +59,9 @@
   "tray": {
     "icon-size": 21,
     "spacing": 8,
+    // "icons": {
+    //   "Fcitx": "/usr/share/icons/Papirus/16x16/panel/fcitx-kbd-panel.svg",
+    // },
   },
   "cpu": {
     "interval": 5,

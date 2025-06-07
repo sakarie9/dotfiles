@@ -36,6 +36,15 @@ bind K tabprev
 " bind d composite tabprev; tabclose #
 " bind D tabclose
 
+" NOTE tridactyl has no left option (qutebrowser select_on_remove equivalent),
+" but we can bind d to tabclose and go to the last accessed tab (which can be a
+" tab opened in the background); this works well when opening multiple tabs:
+" you can then press d to jump to the most recently opened one then d to
+" continue going through tabs in reverse order
+" TODO: this won't respect tab groups (will show tabs from other tab groups)
+bind d composite tab #; tabclose #
+bind D tabclose
+
 " Buggy on zen
 " unbind D
 " bind Dj tabcloseallto right
@@ -89,6 +98,8 @@ set findcase sensitive
 autocmd DocStart mail.google.com mode ignore
 
 autocmd DocStart www.edclub.com mode ignore
+
+autocmd DocStart app.dartnode.com mode ignore
 
 
 " " bovine3dom's dogfood

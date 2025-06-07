@@ -1,6 +1,6 @@
 # Define the gi function to fetch .gitignore files
 function gi
-    curl -fLw '\n' https://www.toptal.com/developers/gitignore/api/(string join , $argv)
+    curl -fLw '\n' https://www.toptal.com/developers/gitignore/api/(string join , $argv) >.gitignore
 end
 
 # Fetch the list of available .gitignore templates
