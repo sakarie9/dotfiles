@@ -32,6 +32,11 @@ if status is-interactive
         zoxide init fish | source
     end
 
+    # rcargo
+    # if type -q rcargo
+    #     alias cargo=rcargo
+    # end
+
     # tide
     if not set -q _tide_left_items
         tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' \

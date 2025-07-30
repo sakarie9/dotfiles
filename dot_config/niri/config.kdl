@@ -13,19 +13,34 @@ spawn-at-startup "hypridle"
 spawn-at-startup "wallpaper-changer"
 spawn-at-startup "wallpaper-changer" "set-niri-backdrop"
 // spawn-at-startup "xwayland-satellite" ":12"
-spawn-at-startup "run_xwayland-satellite"
+// spawn-at-startup "run_xwayland-satellite"
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}
 
 environment {
-    DISPLAY ":12"
+    // DISPLAY ":12"
     MOZ_ENABLE_WAYLAND "1"
     _JAVA_AWT_WM_NONREPARENTING "1"
     GTK_IM_MODULE "fcitx"
     // GTK_IM_MODULE "wayland"
-    QT_IM_MODULE "fcitx"
+    // QT_IM_MODULE "fcitx"
+    // QT_IM_MODULE "wayland;fcitx;ibus"
     XMODIFIERS "@im=fcitx"
     QT_QPA_PLATFORM "wayland;xcb"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORMTHEME "qt6ct:qt5ct"
+    // FCITX_NO_PREEDIT_APPS "gvim.*,wps.*,wpp.*,et.*,code,qq"
+    PROTON_USE_NTSYNC "1"
+}
+
+cursor {
+    xcursor-theme "catppuccin-frappe-light-cursors"
+    xcursor-size 24
+
+    // hide-when-typing
+    // hide-after-inactive-ms 1000
 }
 
 // Input device configuration.
@@ -304,9 +319,9 @@ binds {
 
     Mod+T { spawn "footclient"; }
     Mod+Return { spawn "footclient"; }
-    Mod+E { spawn "rofi" "-show" "drun"; }
+    // Mod+E { spawn "rofi" "-show" "drun"; }
+    Mod+E { spawn "fuzzel"; }
     Mod+X { spawn "rofi" "-show" "window"; }
-    // Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
     Mod+V { spawn "copyq" "toggle"; }
     Mod+B { spawn "zen"; }
@@ -324,7 +339,7 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
 
     // Mod+Q { close-window; }
-    Mod+Q hotkey-overlay-title="Close Focused Window" { spawn "niri-killactive-wrapper"; }
+    Mod+Q repeat=false hotkey-overlay-title="Close Focused Window" { spawn "niri-killactive-wrapper"; }
 
     // WASD
     Mod+A     { focus-column-left; }

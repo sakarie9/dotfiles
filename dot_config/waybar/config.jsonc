@@ -24,7 +24,7 @@
     "memory",
     "temperature",
     "wireplumber",
-    "custom/easyeffects",
+    // "custom/easyeffects",
     "custom/power",
   ],
   "hyprland/workspaces": {
@@ -46,6 +46,11 @@
   },
   "sway/workspaces": {
     "format": "{name}",
+  },
+  "niri/window": {
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 16,
   },
   "idle_inhibitor": {
     "format": "{icon}",
