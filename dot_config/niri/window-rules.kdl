@@ -1,0 +1,110 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Global round corners for all windows.
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+// Global disable floating focus-ring.
+window-rule {
+    match is-floating=true
+    focus-ring {
+        off
+    }
+    border {
+        on
+    }
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^画中画$"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+}
+window-rule {
+    match app-id=r#"^zen-browser$"# title="^画中画$"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+}
+window-rule {
+    match app-id=r#"^zen$"# title="^画中画$"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+}
+// copyq
+window-rule {
+    match app-id=r#"^com.github.hluk.copyq$"#
+    open-floating true
+    default-column-width { fixed 600; }
+    default-window-height { fixed 700; }
+}
+// Telegram
+window-rule {
+    match app-id=r#"^org.telegram.desktop$"# title="^媒体查看器$"
+    open-floating true
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 1000; }
+}
+// pavucontrol
+window-rule {
+    match app-id=r#"^org.pulseaudio.pavucontrol$"#
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
+}
+// calculator
+window-rule {
+    match app-id=r#"^io.github.Qalculate.qalculate-qt$"#
+    open-floating true
+    default-column-width { fixed 620; }
+    default-window-height { fixed 700; }
+}
+// QQ
+window-rule {
+    match app-id=r#"^QQ$"#
+    open-floating true
+}
+// Steam notification
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+// Steam
+window-rule {
+    match app-id="steam" title=r#"^好友列表$"#
+    open-floating true
+}
+// FileRoller
+window-rule {
+    match app-id="org.gnome.FileRoller"
+    open-floating true
+}
+// Android Emulator
+window-rule {
+    match app-id="Emulator" title=r#"^Emulator$"#
+    open-floating false
+}
+// KDE Connect
+window-rule {
+    match app-id="org.kde.kdeconnect.daemon"
+    open-floating true
+}
+
+// Rofi shadow
+layer-rule {
+    match namespace="^rofi$"
+    shadow {
+        on
+    }
+    geometry-corner-radius 8
+}
+
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
